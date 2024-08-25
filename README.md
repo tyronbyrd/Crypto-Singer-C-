@@ -17,7 +17,9 @@ NOTE: INSTRUCTIONS APPENDED AT BOTTOM OF README
 3. A C++ compiler that supports C++11 standard or higher (e.g., GCC, Clang, MSVC)
 4. FluidSynth library
 5. SFML library
-6. A SoundFont file (e.g., 'Rhodes EPs Plus-v2.4.sf2') for use with FluidSynth
+6. A SoundFont file (e.g., 'Rhodes EPs Plus-v2.4.sf2') for use with FluidSynth. You can download the soundfont at https://sites.google.com/site/soundfonts4u/
+   just ctl+f 'Rhodes EPs Plus-v2.4.sf2' and download this one and then create a directory and copy past its path into the path variable. You can try other
+   soundfonts too, just link the path accordingly. 
 
    
 Installation
