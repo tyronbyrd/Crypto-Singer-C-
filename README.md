@@ -127,5 +127,73 @@ FluidSynth is a real-time software synthesizer. To install FluidSynth:
      
 
 
+ANSWERS FOR 8-2 JOURNAL:
+
+1) Summarize the project and what problem I was solving. 
+
+A: Musical cryptograms are a fun little cryptological trick that famously Bach employed since in German musical notation system, 
+   h is b flat in the American system. They are entertaining but laborious to create without making a codex, so I did that. 
+
+2) What did I do particularly well?
+
+A: I think I made something entertaining which is mostly a toy but can actually also be used for more serious musical projects since
+   the main impediment to using it as a tool was adjustable beats per minutes, which is a feature I implemented.
+
+2) Where could you enhance your code? How would these improvements make your code more efficient, secure, and so on?
+
+A: I wanted to write a mode switcher for the soundfonts which cycles through a revolver of soundfonts so that you can access e.g. a Rhodes electric piano,
+   a drum kit, a bass, and a regular piano. The bass and drums sit on different channels so I had to write a MIDI channel switching function which you can
+   see is a vestigial element of this work, but I ran into some issues with QT6, namely there is a major bug with implementing the combo box I was trying to 
+   use, so I still need to consult the source documentation and see if I can find a method which is simpler, e.g. a button that sends 1-4 and just write an
+   if clause. This would make the program more robust and it can almost do that. I just reprogrammed all of this in a day and it got quite late. 
+
+   I would also add more busses. The original version of this program, which I wrote in python and framed first in tkinter then later in pygame; it has 
+   multiple busses and it's really easy to basically plop out chiptunes in 5 minutes using FM synthesis through the speakers. That would make this a 
+   significantly more serious musical tool.
+
+   Oh yeah, the original of this actually does render .wav's, this one just does playback. This would be a critical feature to add for it to be a musical 
+   tool accessibly. Right now anybody who knows how to do a sound loopback or record system audio can use it but I forgot, this one doesn't yet render. 
+   Ironically, the difficulty of rendering is higher in C++ than in Python, but playback has been seamless, whereas in Python there were a lot of snags to 
+   implementing playback, which required a major rewrite from tkinter into pygame. I'm sure I can find an adequte library, but I started first with playback.
+
+3) Which pieces of the code did you find most challenging to write, and how did you overcome this? What tools or resources are you adding to your support network?
+
+   A: The pieces which were most challenging to write was probably the soundfont functions for fluidsynth. Fluidsynth is really powerful but super touchy and
+   needs re-initiated each time so I needed it's own special destructor for cleanup. I can't just leave one instantiation and feed it different paths AFAIK. I
+   mostly overcame this by fiddling around imagining namespaces. Wish I could say I had a more technical process but I have been debugging or troubleshooting a
+   long time and have a habit of jedi-backflipping into the correct answer through lucky educated guesses and Fluidsynth was one of those such moments. E.g.
+   it works great when fluidsynth is initialized first before SMFL; and this sequence was my response to it not working the other way around after first building
+   and confirming that fluidsynth worked, then doing SMFL, combining the two; and all the sudden it wasn't working. I don't have an answer to that but setting
+   fluidsynth as the default (opposite the original order) worked and solved this issue.
+
+4) What skills from this project will be particularly transferable to other projects or course work?
+
+   A: All of them. Literally all of them, whether using maps to feed information and values or communicating with the system to produce sound or images.
+      I think really the only sort of major fundamental in here from a very user oriented perspective is there is not a database for saving the creations
+      and the original version actually renders the .wav's while this one just does playback.
+
+5) How did you make this program maintainable, readable, and adaptable?
+
+   A: For the past year I have tried many systems of documentation and have noticed that it is quite possible to over-document inline and make code less
+      legible. I'm extremely sight impaired and this is particularly impactful to me. As a result, I think that good code is implicitly legibile to itself
+      and serves to self document (self-documenting code). As a result, I tend to name the functions transparently, redundantly label them in case of similar
+      names, and write in transparent syntax. I don't really use shorthand code as a result, I do tend to have a more explicit style, and sometimes more verbose,
+      but I can at a glance see what everything does and where it sits and I believe that if I can, others can too.
+
+      I made this program more adaptable by writing a MIDI shift function which retrieves the midi values but value shifted from the map. This will allow for
+      channel switching to make many types of soundfont possible that use the lower or upper bounds for various reasons, as well as allowing later modulation
+      through keys. Further down the road, it would also allow me to implement modes. 
+
+      Implementing a soundfont function also made this program more adaptable than SMFL. SMFL just uses FM synthesis IIRC, and as a result, a person would
+      have to do a ton of programming to make various wave shapes, tails, attacks, harmonic compositions; and so on. I did make a nice tail to stop speaker alias,
+      hence the note die off-- but the soundfonts allow anybody to download any soundfont, plug it in, and let it rip. They might have to channel switch but
+      anything within the same range like piano, trumpets, violins, most woodwinds, chorales, synthesizers; these should just be plug and play after changing
+      a path variable. 
+
+   
+
+
+
+
 
 
