@@ -99,7 +99,7 @@ This guide provides step-by-step instructions for installing the required depend
 Qt is a free and open-source widget toolkit for creating graphical user interfaces. To install Qt:
 
   1. Visit the official Qt website: https://www.qt.io/download.
-  2. Download the Qt Online Installer for your operating system or or using brew install brew install --cask qt-creator
+  2. Download the Qt Online Installer for your operating system or or using brew install `brew install --cask qt-creator`
   3. Run the installer and follow the on-screen instructions.
   4. During the installation process, ensure that you select the components for Qt 5.x or 6.x (depending on your project requirement) and the Qt Creator IDE.
   5. After installation, set the environment variables if necessary, and verify the installation by opening Qt Creator.
@@ -113,7 +113,7 @@ SFML (Simple and Fast Multimedia Library) is used for audio and graphics handlin
   3. Extract the downloaded archive to a directory of your choice.
   4. For Windows, set the environment variable for SFML to the extracted directory.
   5. For Linux/macOS, install SFML using your package manager, e.g., `sudo apt-get install libsfml-dev` on Debian-based systems,
-     or using brew install brew install sfml.
+     or using brew install `brew install sfml`.
 
 3. Installing FluidSynth
    
