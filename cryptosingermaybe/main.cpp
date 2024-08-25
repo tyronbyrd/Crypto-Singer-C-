@@ -211,7 +211,7 @@ private:
             std::cout << "Note: " << note << std::endl;
             if (note != "REST") {
                 //FIXME!!! getShiftedMidiKey(note, shift) to channel hop, else noteToMidiKey(note)
-                int key = getShiftedMidiKey(note, +30);
+                int key = getShiftedMidiKey(note, +36);
                 std::cout << "MIDI Key: " << key << std::endl;
                 fluid_synth_noteon(synth, 0, key, 80);  // Channel 0, Velocity 80
                 std::this_thread::sleep_for(std::chrono::milliseconds(static_cast<int>(beatDuration)));
